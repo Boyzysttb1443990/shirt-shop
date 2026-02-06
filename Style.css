@@ -1,0 +1,129 @@
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     text-align: center;
+     background: linear-gradient(180deg, #0b355e 0%, #0f4a7a 50%, #155f96 100%);
+ }
+
+ header {
+     background-color: #0b355e;
+     color: white;
+     padding: 20px;
+     font-family: Tahoma, Verdana, sans-serif;
+     font-size: 24px;
+ }
+
+ #product-list {
+     display: flex;
+     gap: 20px;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin: 20px;
+ }
+
+ .product {
+     width: 250px;
+     background: white;
+     padding: 15px;
+     border-radius: 12px;
+     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+     text-align: center;
+     cursor: pointer;
+     transition: transform 0.25s ease, box-shadow 0.25s ease;
+ }
+
+ .product:hover {
+     transform: translateY(-6px);
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0, 0.18);
+ }
+
+ .product img {
+     width: 100%;
+     height: auto;
+     object-fit: contain;
+     border-radius: 8px;
+ }
+
+ .product h2 {
+     font-size: 18px;
+     margin-top: 10px;
+ }
+
+ .product p {
+     color: #007bff;
+     font-weight: bold;
+ }
+
+ button {
+     margin-top: 10px;
+     background: linear-gradient(135deg, #007bff, #0056b3);
+     color: white;
+     padding: 10px 14px;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     font-weight: 600;
+     transition: transform 0.2s ease;
+ }
+
+ button:hover {
+     transform: scale(1.05);
+ }
+
+ #cart {
+     margin-top: 20px;
+ }
+
+ .cart-item {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px;
+     border-bottom: 1px solid #ddd;
+     gap: 10px;
+ }
+
+ .cart-item img {
+     width: 80px;
+     height: 100px;
+     object-fit: contain;
+     border-radius: 8px;
+ }
+
+ .cart-buttons {
+     display: flex;
+     gap: 5px;
+ }
+
+ @media (max-width: 768px) {
+
+     #product-list {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .product {
+         width: 90%;
+     }
+
+     header {
+         font-size: 20px;
+         padding: 15px;
+     }
+
+     .cart-item {
+         flex-direction: column;
+         text-align: center;
+     }
+
+     .cart-item img {
+         width: 70px;
+         height: 90px;
+         margin: 0 auto;
+     }
+
+     button {
+         width: 100%;
+     }
+ }
