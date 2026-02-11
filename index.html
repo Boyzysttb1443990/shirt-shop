@@ -26,7 +26,6 @@
         <h2>🛒 Add to this</h2>
         <div id="cart-items"></div>
         <p id="total-price">Total: 0 VND</p>
-
         <button onclick="checkout()">✅ Check Out</button>
     </div>
 
@@ -40,14 +39,26 @@
         <select id="payment">
             <option value="bank">Bank Transfer</option>
             <option value="cod">Cash on Delivery</option>
-            <option value="JDB">JDB Bank</option>
-            <option value="BCEL">BCEL Bank</option>
+            <option value="JDB">JDB </option>
+            <option value="BCEL">BCEL </option>
             <option value="BIDB">BIDV</option>
+            <option value="ALIPAY">ALIPAY</option>
+            <option value="LDB">LDB</option>
         </select>
 
         <button onclick="submitOrder()">Confirm Order</button>
     </div>
 
+    <div id="bank-info" style="display:none; margin-top:15px">
+        <p><b>Bank:</b> BCELone</p>
+        <p><b>Account Name:</b> Boyzy buy</p>
+        <p><b>Account Number:</b> 4751050407</p>
+
+        <input id="fullname">
+        <input id="phone">
+        <textarea id="address"></textarea>
+        <select id="peyment">
+    </div>
 
     <script>
         const products = [
@@ -150,33 +161,38 @@
         }
 
         function submitOrder() {
-            const fullname = document.getElementById("fullname").value;
+            const name = document.getElementById("fullname").value;
             const phone = document.getElementById("phone").value;
             const address = document.getElementById("address").value;
             const payment = document.getElementById("payment").value;
 
-            if (!fullname || !phone || !address) {
-                alert("Please fill all information!");
+            if (!name || !phone || !address) {
+                alert("Please fill all customer information!");
                 return;
             }
 
-            let orderSummary = "Order Summary:\n";
-            cart.forEach(item => {
-                orderSummary += `${item.name} x${item.quantity}\n`;
-            });
+            alert("Order Successful!\nName: " + name + "\nPayment:" + payment);
 
-            alert(
-                `✅ Order Successful!\n\nName: ${fullname}\nPhone: ${phone}\nAddress: ${address}\nPayment: ${payment}\n\n${orderSummary}`
-            );
+            localStorage.removeItem("cart");
+            location.reload();
 
             cart = [];
             updateCart();
             document.getElementById("checkout-form").style.display = "none";
         }
 
+        window.onload = function () {
+            displayProducts();
+            updateCart();
 
-        displayProducts();
-        updateCart();
+            const paymentSelect = document.getElementById("payment");
+            if (paymentSelect) {
+                paymentSelect.addEventListener("change", function () {
+                    const bankSection = document.getElementById("bank-info");
+                    bankSection.style.display = this.value === "Bank Transfer" ? "block" : "none";
+                });
+            }
+        };
 
     </script>
 </body>
