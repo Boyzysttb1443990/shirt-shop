@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirt Store</title>
+    <meta name="description" content="Shop stylish shirts and hoodies online at Boyzy Buy. Affordable fashion with fast delivery.">
+    <meta name="keywords" content="Boyzy Buy, shirt shop, hoodie, fashion store, buy clothes online">
+    <meta name="author" content="Boy Silavong">
+    <link rel="stylesheet" href="./Shirt Store_files/style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Boyzy buy</h1>
+    </header>
+
+    <main>
+        <div id="product-list"><div class="product">
+                    <img src="./Shirt Store_files/aa90cff663d02ecb264b6b4dca235c64.jpg" alt="Frame Button-Up Shirt (Frame)">
+                    <h2>Frame Button-Up Shirt (Frame)</h2>
+                    <p>500,000 VND</p>
+                    <button onclick="addToCart(1)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/b1b47f33ed75383583951f65afa9d151.jpg" alt="Knit Shirt – Black">
+                    <h2>Knit Shirt – Black</h2>
+                    <p>800,000 VND</p>
+                    <button onclick="addToCart(2)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/337f758e64d55b910179c2044444d094.jpg" alt="Shirt Special">
+                    <h2>Shirt Special</h2>
+                    <p>300,000 VND</p>
+                    <button onclick="addToCart(3)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/8ae3cd45e08a7233bd94d0e22782a80a.jpg" alt="Knit Shirt – Black">
+                    <h2>Knit Shirt – Black</h2>
+                    <p>600,000 VND</p>
+                    <button onclick="addToCart(4)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/ab7db62f3546c13462c4f56d60165b78.jpg" alt="Knit Shirt – White">
+                    <h2>Knit Shirt – White</h2>
+                    <p>250,000 VND</p>
+                    <button onclick="addToCart(5)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/44f49ed95795f2147d107696d80c5981.jpg" alt="Hoodie – Red">
+                    <h2>Hoodie – Red</h2>
+                    <p>150,000 VND</p>
+                    <button onclick="addToCart(6)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/2ae9f7b30bc3f330cc4260c58eea50b0.jpg" alt="TC1-TS2104">
+                    <h2>TC1-TS2104</h2>
+                    <p>200,000 VND</p>
+                    <button onclick="addToCart(7)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/1d2fe4450bba74d9af6c2c709c9deb09.jpg" alt="knit Shirt - green">
+                    <h2>knit Shirt - green</h2>
+                    <p>700,000 VND</p>
+                    <button onclick="addToCart(8)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/2dced344fb19d67a5d72a501a28d5ba0.jpg" alt="Buck Masson">
+                    <h2>Buck Masson</h2>
+                    <p>350,000 VND</p>
+                    <button onclick="addToCart(9)">🛒 Add to Cart</button>
+                </div><div class="product">
+                    <img src="./Shirt Store_files/a630a2b411cf9bbb0b6c928dd11c2df8.jpg" alt="Carhartt WIP Ruben Stripe Ruuby shirt">
+                    <h2>Carhartt WIP Ruben Stripe Ruuby shirt</h2>
+                    <p>450,000 VND</p>
+                    <button onclick="addToCart(10)">🛒 Add to Cart</button>
+                </div></div>
+    </main>
+
+    <div id="cart">
+        <h2>🛒 Add to this</h2>
+        <div id="cart-items"><p>Your cart is empty 🛒</p></div>
+        <p id="total-price">Total: 0 VND</p>
+        <button onclick="checkout()">✅ Check Out</button>
+    </div>
+
+    <div id="checkout-form" style="display:none; margin-top:20px;">
+        <h2>Customer Information</h2>
+        <input type="text" id="fullname" placeholder="Full Name" required="">
+        <input type="tel" id="phone" placeholder="Phone Number" required="">
+        <textarea id="address" placeholder="Shipping Address" required=""></textarea>
+
+        <h3>Payment Method</h3>
+        <select id="payment">
+            <option value="bank">Bank Transfer</option>
+            <option value="cod">Cash on Delivery</option>
+            <option value="JDB">JDB </option>
+            <option value="BCEL">BCEL </option>
+            <option value="BIDB">BIDV</option>
+            <option value="ALIPAY">ALIPAY</option>
+            <option value="LDB">LDB</option>
+        </select>
+
+        <button onclick="submitOrder()">Confirm Order</button>
+    </div>
+
+    <div id="bank-info" style="display:none; margin-top:15px">
+        <p><b>Bank:</b> BCELone</p>
+        <p><b>Account Name:</b> Boyzy buy</p>
+        <p><b>Account Number:</b> 4751050407</p>
+
+        <input id="fullname">
+        <input id="phone">
+        <textarea id="address"></textarea>
+        <select id="peyment">
+    
+
+    <script>
+        const products = [
+            { id: 1, name: "Frame Button-Up Shirt (Frame)", price: 500000, image: "https://i.pinimg.com/1200x/aa/90/cf/aa90cff663d02ecb264b6b4dca235c64.jpg" },
+            { id: 2, name: "Knit Shirt – Black", price: 800000, image: "https://i.pinimg.com/1200x/b1/b4/7f/b1b47f33ed75383583951f65afa9d151.jpg" },
+            { id: 3, name: "Shirt Special", price: 300000, image: "https://i.pinimg.com/1200x/33/7f/75/337f758e64d55b910179c2044444d094.jpg" },
+            { id: 4, name: "Knit Shirt – Black", price: 600000, image: "https://i.pinimg.com/736x/8a/e3/cd/8ae3cd45e08a7233bd94d0e22782a80a.jpg" },
+            { id: 5, name: "Knit Shirt – White", price: 250000, image: "https://i.pinimg.com/736x/ab/7d/b6/ab7db62f3546c13462c4f56d60165b78.jpg" },
+            { id: 6, name: "Hoodie – Red", price: 150000, image: "https://i.pinimg.com/1200x/44/f4/9e/44f49ed95795f2147d107696d80c5981.jpg" },
+            { id: 7, name: "TC1-TS2104", price: 200000, image: "https://i.pinimg.com/736x/2a/e9/f7/2ae9f7b30bc3f330cc4260c58eea50b0.jpg" },
+            { id: 8, name: "knit Shirt - green", price: 700000, image: "https://i.pinimg.com/736x/1d/2f/e4/1d2fe4450bba74d9af6c2c709c9deb09.jpg" },
+            { id: 9, name: "Buck Masson", price: 350000, image: "https://i.pinimg.com/1200x/2d/ce/d3/2dced344fb19d67a5d72a501a28d5ba0.jpg" },
+            { id: 10, name: "Carhartt WIP Ruben Stripe Ruuby shirt", price: 450000, image: "https://i.pinimg.com/1200x/a6/30/a2/a630a2b411cf9bbb0b6c928dd11c2df8.jpg" }
+        ];
+
+        let cart = [];
+
+        function displayProducts() {
+            const productContainer = document.getElementById("product-list");
+            productContainer.innerHTML = "";
+            products.forEach(product => {
+                const productElement = document.createElement("div");
+                productElement.classList.add("product");
+                productElement.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" />
+                    <h2>${product.name}</h2>
+                    <p>${product.price.toLocaleString()} VND</p>
+                    <button onclick="addToCart(${product.id})">🛒 Add to Cart</button>
+                `;
+                productContainer.appendChild(productElement);
+            });
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const item = cart.find(i => i.id === id);
+
+            if (item) {
+                item.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartContainer = document.getElementById("cart-items");
+            const totalPriceElement = document.getElementById("total-price");
+            cartContainer.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty 🛒</p>";
+                totalPriceElement.innerText = "Total: 0 VND";
+                localStorage.setItem("cart", JSON.stringify(cart));
+                return;
+            }
+
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" />
+                    <span>${item.name} (${item.quantity})</span>
+                    <button onclick="changeQuantity(${item.id}, -1)">➖</button>
+                    <button onclick="changeQuantity(${item.id}, 1)">➕</button>
+                    <button onclick="removeFromCart(${item.id})">❌</button>
+                `;
+                cartContainer.appendChild(cartItem);
+            });
+
+            totalPriceElement.innerText = `Total: ${total.toLocaleString()} VND`;
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        function changeQuantity(id, amount) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.quantity += amount;
+                if (item.quantity <= 0) {
+                    removeFromCart(id);
+                }
+            }
+            updateCart();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("🛒 Your cart is empty!");
+            } else {
+                document.getElementById("checkout-form").style.display = "block";
+            }
+        }
+
+        function submitOrder() {
+            const name = document.getElementById("fullname").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const payment = document.getElementById("payment").value;
+
+            if (!name || !phone || !address) {
+                alert("Please fill all customer information!");
+                return;
+            }
+
+            alert("Order Successful!\nName: " + name + "\nPayment:" + payment);
+
+            localStorage.removeItem("cart");
+            location.reload();
+
+            cart = [];
+            updateCart();
+            document.getElementById("checkout-form").style.display = "none";
+        }
+
+        window.onload = function () {
+            displayProducts();
+            updateCart();
+
+            const paymentSelect = document.getElementById("payment");
+            if (paymentSelect) {
+                paymentSelect.addEventListener("change", function () {
+                    const bankSection = document.getElementById("bank-info");
+                    bankSection.style.display = this.value === "Bank Transfer" ? "block" : "none";
+                });
+            }
+        };
+
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</select></div></body></html>
